@@ -19,8 +19,8 @@ def main():
     
     
     
-    file_name = "record_1.txt"
-    save_name = "record_1.png"
+    file_name = "record_good.txt"
+    save_name = "record_good.png"
     read_path = "/home/ldd/openvins_ws/src/open_vins/path/" + file_name
     save_path = "/home/ldd/openvins_ws/src/open_vins/path/" + save_name
     data = np.loadtxt(read_path, delimiter=',', skiprows=1)

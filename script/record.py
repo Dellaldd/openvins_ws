@@ -12,14 +12,14 @@ import threading
 
 class Logger:
     def __init__(self):
-        self.f = open("/home/ldd/openvins/src/open_vins/path/record_5.txt", 'w')
+        self.f = open("/home/ldd/openvins_ws/src/open_vins/path/record_good.txt", 'w')
         self.openvins_pose = [str(0),str(0),str(0),str(0),str(0),str(0), str(0)]
         self.opti_pose = [str(0),str(0),str(0),str(0),str(0),str(0), str(0)]
         
         self.start_time = 0 
         self.cur_time = 0
         rospy.Subscriber("/ov_msckf/poseimu", PoseWithCovarianceStamped,self.openvins_Cb)
-        rospy.Subscriber("/vrpn_client_node/jiahao3/pose",PoseStamped,self.opti_Cb)
+        rospy.Subscriber("/vrpn_client_node/jiahao2/pose",PoseStamped,self.opti_Cb)
         
         self.add_thread = threading.Thread(target = self.thread_job)
         self.add_thread.start()

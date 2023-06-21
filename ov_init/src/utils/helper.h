@@ -143,19 +143,24 @@ public:
     Eigen::Vector3d x_axis, y_axis;
     Eigen::Vector3d e_1(1.0, 0.0, 0.0);
     Eigen::Vector3d e_2(0.0, 1.0, 0.0);
-    double inner1 = e_1.dot(z_axis) / z_axis.norm();
-    double inner2 = e_2.dot(z_axis) / z_axis.norm();
-    if (fabs(inner1) < fabs(inner2)) {
-      x_axis = z_axis.cross(e_1);
-      x_axis = x_axis / x_axis.norm();
-      y_axis = z_axis.cross(x_axis);
-      y_axis = y_axis / y_axis.norm();
-    } else {
-      x_axis = z_axis.cross(e_2);
-      x_axis = x_axis / x_axis.norm();
-      y_axis = z_axis.cross(x_axis);
-      y_axis = y_axis / y_axis.norm();
-    }
+    // double inner1 = e_1.dot(z_axis) / z_axis.norm();
+    // double inner2 = e_2.dot(z_axis) / z_axis.norm();
+    // if (fabs(inner1) < fabs(inner2)) {
+    //   x_axis = z_axis.cross(e_1);
+    //   x_axis = x_axis / x_axis.norm();
+    //   y_axis = z_axis.cross(x_axis);
+    //   y_axis = y_axis / y_axis.norm();
+    // } else {
+    //   x_axis = z_axis.cross(e_2);
+    //   x_axis = x_axis / x_axis.norm();
+    //   y_axis = z_axis.cross(x_axis);
+    //   y_axis = y_axis / y_axis.norm();
+    // }
+
+    x_axis = z_axis.cross(e_2);
+    x_axis = x_axis / x_axis.norm();
+    y_axis = z_axis.cross(x_axis);
+    y_axis = y_axis / y_axis.norm();
 
     // Original method
     // https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process
